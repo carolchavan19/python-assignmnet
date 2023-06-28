@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error message</title>
+</head>
+<body>
+    <h1>Error message</h1>
+
+    <!-- Error message section -->
+    {% if error %}
+    <h2>
+    <div class="error">{{ error }}</div></h2>
+    {% endif %}
+
+    <!-- Content section -->
+    {% block content %}{% endblock %}
+
+</body>
+</html>

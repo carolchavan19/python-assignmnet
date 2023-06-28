@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+        body {
+          background-image: url('https://www.surveylegend.com/wordpress/wp-content/themes/sage/resources/images/img/modal/upgrade-file-upload.png');
+        }
+        .center {
+  margin: auto;
+  width: 80%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+.block {
+  margin: auto;
+  display: block;
+  width: 82%;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  padding: 1px 1px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+      </style>
+  </head>
+<body>
+
+ <h3><center>S3 FILE MANAGER</center></h3>
+<!-- listing buckets -->
+<div>
+  <a href="http://127.0.0.1:5000/list" class="block">
+    <h3>LIST BUCKETS</h3>
+</a>
+
+</div>
+
+<br>
+<!-- creating bucket -->
+<h3><center>creating bucket</center></h3>
+<div class="center">
+<form action="/create_bucket" method ="post" >
+  <label for="fname"> enter the bucket name to create new bucket</label><br>
+  <input type="text" name="bucket_name" required>
+  <input type="submit" value="create">
+</form> 
+</div>
+<br>
+
+<!-- listing obj in buckets -->
+<h3><center>listing objects in bucket</center></h3>
+<div class ='center'>
+  <form action="/list_obj" method ="post" >
+    <label for="fname"> enter the bucket name to list objects</label><br>
+    <input type="text" name="bucket_name" required>
+</a>
+<input type="submit" value="Submit">
+</form> 
+</div>
+
+<br>
+<!-- creating folders in buckets -->
+<h3><center>creating folders</center></h3>
+<div class="center">
+  <form action="/create_folder" method ="post" >
+    <label for="fname"> enter the bucket name to add folder</label><br>
+    <input type="text" name="bucket_name" required>
+    <br>
+    <br>
+    <label for="fname"> enter the folder name</label><br>
+    <input type="text" name="folder_name" required>
+    <input type="submit" value="create">
+  </form> 
+  </div>
+
+  <br>
+<!-- uploading files to bucket -->
+<h3><center>uploading files</center></h3>
+  <div class="center">
+    <form action="/upload" method ="post" enctype="multipart/form-data">
+      <label for="fname"> enter bucket name </label><br>
+      <input type="text" name="bucket_name" required>
+      <input type="file"  name="file" required>
+      <input type="submit">
+    </form>
+    </div>
+
+  <br>
+  <!-- delete obj from bucket  -->
+  <h3><center>deleting files</center></h3>
+  <div class="center">
+    <form action="/delete_obj" method ="post" enctype="multipart/form-data">
+      <label for="fname"> enter bucket name </label><br>
+      <input type="text" name="bucket_name" required>
+      <br>
+      <br>
+      <label for="fname"> enter file name to be delete </label><br>
+      <input type="text" name="filename" required>
+      <input type="submit" value="delete">
+    </form>
+    </div>
+
+    <br>
+    <!-- delete bucket -->
+    <h3><center>deleting bucket</center></h3>
+    <div class="center">
+      <form action="/dele_buc" method ="post" >
+        <label for="fname"> enter the bucket name to delete</label><br>
+        <input type="text" name="bucket_name" required>
+        <input type="submit">
+      </form> 
+      </div>
+      <br>
+    
+    <!-- copy file -->
+    <h3><center>copying files</center></h3>
+    <br>
+  <div class="center">
+    <form action="/copy_obj" method ="post" >
+      <label for="fname"> enter src bucket name </label><br>
+      <input type="text" name="src_bucket_name" required>
+      <br>
+      <br>
+      <label for="fname"> enter src file name </label><br>
+      <input type="text" name="src_filename" required>
+      <br>
+      <br>
+      <label for="fname"> enter dest bucket name </label><br>
+      <input type="text" name="dest_bucket_name" required>
+      <br>
+      <br>
+      <label for="fname"> enter dest file name </label><br>
+      <input type="text" name="dest_filename" required>
+      <input type="submit">
+    </form>
+    </div>
+
+    <!-- move file -->
+    <h3><center>moving files</center></h3>
+    <br>
+  <div class="center">
+    <form action="/move_obj" method ="post" >
+      <label for="fname"> enter src bucket name </label><br>
+      <input type="text" name="src_bucket_name" required>
+      <br>
+      <br>
+      <label for="fname"> enter src file name </label><br>
+      <input type="text" name="src_filename" required>
+      <br>
+      <br>
+      <label for="fname"> enter dest bucket name </label><br>
+      <input type="text" name="dest_bucket_name" required>
+      <br>
+      <br>
+      <label for="fname"> enter dest file name </label><br>
+      <input type="text" name="dest_filename" required>
+      <input type="submit">
+    </form>
+    </div>
+</body>
+</html>
